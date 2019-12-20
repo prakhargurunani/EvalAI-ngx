@@ -99,6 +99,24 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Start EvalAI submission worker using Django admin panel [For forked version]
+
+**1. Approve challenge in django admin panel** - 
+
+* Login to EvalAI’s django admin panel, and you will see the list of challenges.
+![Image](https://i.imgur.com/FRi5ofa.png)
+* Click on the challenge that you want to approve and scroll to bottom to check the following two fields - 
+  * Approved By Admin
+  * Publically Available
+![Image](https://i.imgur.com/l7fQrxX.png)
+* Now, save the challenge.
+
+**2. Reload submission worker** - 
+
+* Since you have just approved the challenge, the submission worker has to be reloaded so that it can fetch the evaluation script and other related files for your challenge from the database. Now reload the submission worker using the following command:
+`docker-compose restart worker`
+* The submission worker has been successfully reloaded and the challenge is ready to accept submissions from participants.
+
 ## The Team
 
 EvalAI-ngx is currently maintained by [Shekhar Rajak](http://s-hacker.info/), [Mayank Lunayach](https://github.com/lunayach), [Shivani Prakash Gupta](https://www.behance.net/shivaniprakash19), [Rishabh Jain](https://rishabhjain2018.github.io/) and [Deshraj Yadav](https://deshraj.github.io).
